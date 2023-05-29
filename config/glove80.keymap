@@ -103,11 +103,11 @@
         base_layer {
             bindings = <
      &kp F1    &kp F2   &kp F3    &kp F4     &kp F5                                                                                  &kp F6     &kp F7    &kp F8    &kp F9    &kp F10
-  &kp EQUAL    AS(N1)   AS(N2)    AS(N3)     AS(N4)  AS(N5)                                                                  AS(N6)  AS(N7)     AS(N8)    AS(N9)    AS(N0)  &kp MINUS
-    &kp TAB     AS(Q)    AS(W)     AS(E)      AS(R)   AS(T)                                                                   AS(Y)   AS(U)      AS(I)     AS(O)     AS(P)   &kp BSLH
-    &kp ESC     AS(A)    AS(S)     AS(D)      AS(F)   AS(G)                                                                   AS(H)   AS(J)      AS(K)     AS(L)  &kp SEMI    &kp SQT
-  &kp GRAVE     AS(Z)    AS(X)     AS(C)      AS(V)   AS(B)  &kp LSHFT  &kp LCTRL    &lower  &kp LGUI  &kp RCTRL  &kp RSHFT   AS(N)   AS(M)  &kp COMMA   &kp DOT  &kp FSLH  &kp PG_UP
- &magic 2 0  &kp HOME  &kp END  &kp LEFT  &kp RIGHT           &kp BSPC    &kp DEL  &kp LALT  &kp RALT    &kp RET  &kp SPACE          &kp UP   &kp DOWN  &kp LBKT  &kp RBKT  &kp PG_DN
+  AS(EQUAL)    AS(N1)   AS(N2)    AS(N3)     AS(N4)  AS(N5)                                                                  AS(N6)  AS(N7)     AS(N8)    AS(N9)    AS(N0)  AS(MINUS)
+    &kp TAB     AS(Q)    AS(W)     AS(E)      AS(R)   AS(T)                                                                   AS(Y)   AS(U)      AS(I)     AS(O)     AS(P)   AS(BSLH)
+    &kp ESC     AS(A)    AS(S)     AS(D)      AS(F)   AS(G)                                                                   AS(H)   AS(J)      AS(K)     AS(L)  AS(SEMI)    AS(SQT)
+  AS(GRAVE)     AS(Z)    AS(X)     AS(C)      AS(V)   AS(B)  &kp LSHFT  &kp LCTRL    &lower  &kp LGUI  &kp RCTRL  &kp RSHFT   AS(N)   AS(M)  AS(COMMA)   AS(DOT)  AS(FSLH)  &kp PG_UP
+ &magic 2 0  &kp HOME  &kp END  &kp LEFT  &kp RIGHT           &kp BSPC    &kp DEL  &kp LALT  &kp RALT    &kp RET  &kp SPACE          &kp UP   &kp DOWN  AS(LBKT)  AS(RBKT)  &kp PG_DN
             >;
         };
     };
