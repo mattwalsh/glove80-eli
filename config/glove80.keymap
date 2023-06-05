@@ -9,6 +9,8 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/outputs.h>
 
+#define AS(keycode) &as LS(keycode) keycode
+#define AS2(keycode, other) &as LS(other) keycode
 
 / {
     /* Glove80 system behavior & macros */
@@ -104,9 +106,9 @@
             bindings = <
      &kp F1     &kp F2        &kp F3    &kp F4     &kp F5                                                                                 &kp F6     &kp F7    &kp F8    &kp F9    &kp F10
   &kp EQUAL     &kp N1        &kp N2    &kp N3     &kp N4  &kp N5                                                                 &kp N6  &kp N7     &kp N8    &kp N9    &kp N0  &kp MINUS
-    &kp TAB      AS(Q)    AS(W)     &kp E      &kp R   &kp T                                                                  &kp Y   &kp U      &kp I     &kp O     &kp P   &kp BSLH
-    &kp ESC      AS(A)    AS(S)     &kp D      &kp F   &kp G                                                                  &kp H   &kp J      &kp K     &kp L  &kp SEMI    &kp SQT
-  &kp LSHFT      AS(Z)    AS(X)     &kp C      &kp V   &kp B  &kp LCTRL  &kp LGUI  &kp HOME  &kp PG_UP  &kp LGUI   &kp RALT   &kp N   &kp M  &kp COMMA   &kp DOT  &kp FSLH  &kp RSHFT
+    &kp TAB      &kp Q         &kp W     &kp E      &kp R   &kp T                                                                  &kp Y   &kp U      &kp I     &kp O     &kp P   &kp BSLH
+    &kp ESC      &kp A         &kp S     &kp D      &kp F   &kp G                                                                  &kp H   &kp J      &kp K     &kp L  &kp SEMI    &kp SQT
+  &kp AS2(LSHFT, :)      &kp Z         &kp X     &kp C      &kp V   &kp B  &kp LCTRL  &kp LGUI  &kp HOME  &kp PG_UP  &kp LGUI   &kp RALT   &kp N   &kp M  &kp COMMA   &kp DOT  &kp FSLH  &kp RSHFT
  &magic 2 0  &kp GRAVE  &kp CAPSLOCK  &kp LEFT  &kp RIGHT           &kp BSPC   &kp DEL   &kp END  &kp PG_DN   &kp RET  &kp SPACE          &kp UP   &kp DOWN  &kp LBKT  &kp RBKT     &lower
             >;
         };
