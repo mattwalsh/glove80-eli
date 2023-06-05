@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define AS(keycode) &as LS(keycode) keycode
+#define AS2(keycode) &as LS(keycode) LPAR
 
 / {
     /* Glove80 system behavior & macros */
