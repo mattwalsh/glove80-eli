@@ -76,6 +76,13 @@ static int get_report_cb(const struct device *dev, struct usb_setup_packet *setu
         *len = sizeof(*report);
         break;
     }
+#if IS_ENABLED(CONFIG_ZMK_MOUSE)
+    case HID_REPORT_ID_MOUSE: {
+        struct zmk_hid_mouse_report *report = zmk_hid_get_mouse_report();
+        *data = (uint8_t *)report;
+        *len = sizeof(*report);
+    }
+#endif /* IS_ENABLED(CONFIG_ZMK_MOUSE) */
     default:
         LOG_ERR("Invalid report ID %d requested", setup->wValue & HID_GET_REPORT_ID_MASK);
         return -EINVAL;
@@ -122,7 +129,7 @@ static const struct hid_ops ops = {
     .set_report = set_report_cb,
 };
 
-int zmk_usb_hid_send_report(const uint8_t *report, size_t len) {
+static int zmk_usb_hid_send_report(const uint8_t *report, size_t len) {
     switch (zmk_usb_get_status()) {
     case USB_DC_SUSPEND:
         return usb_wakeup_request();
@@ -159,6 +166,13 @@ int zmk_usb_hid_send_consumer_report() {
     struct zmk_hid_consumer_report *report = zmk_hid_get_consumer_report();
     return zmk_usb_hid_send_report((uint8_t *)report, sizeof(*report));
 }
+
+#if IS_ENABLED(CONFIG_ZMK_MOUSE)
+int zmk_usb_hid_send_mouse_report() {
+    struct zmk_hid_mouse_report *report = zmk_hid_get_mouse_report();
+    return zmk_usb_hid_send_report((uint8_t *)report, sizeof(*report));
+}
+#endif /* IS_ENABLED(CONFIG_ZMK_MOUSE) */
 
 static int zmk_usb_hid_init(const struct device *_arg) {
     hid_dev = device_get_binding("HID_0");
